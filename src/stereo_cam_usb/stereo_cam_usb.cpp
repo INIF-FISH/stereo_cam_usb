@@ -9,6 +9,7 @@ namespace stereo_cam_usb
         this->_frame_height = this->getCAP_PROP_FRAME_HEIGHT();
         this->_frame_fps = this->getCAP_PROP_FPS();
         this->_frame_exposure = this->getCAP_PROP_EXPOSURE();
+        this->setCAP_PROP_AUTO_EXPOSURE(1);
     }
 
     StereoCamUsb::~StereoCamUsb()

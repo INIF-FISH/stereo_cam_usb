@@ -32,6 +32,7 @@ namespace stereo_cam_usb
         int camera_width = 2560;
         int camera_height = 720;
         int camera_fps = 60;
+        int camera_exposure = 100;
 
     public:
         StereoCamUsbNode(const rclcpp::NodeOptions &options = rclcpp::NodeOptions());
