@@ -64,6 +64,7 @@ namespace stereo_cam_usb
                 cv::Mat image;
                 this->_StereoCamUsb->readImage();
                 this->_StereoCamUsb->correctImage();
+                // this->_StereoCamUsb->processSGBM();
                 this->_StereoCamUsb->getImage(image);
                 if (image.empty())
                     continue;

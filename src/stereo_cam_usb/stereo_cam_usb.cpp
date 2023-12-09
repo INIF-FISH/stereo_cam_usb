@@ -80,6 +80,15 @@ namespace stereo_cam_usb
         this->params.baseline = this->params.translation_of_camera_right.at<double>(cv::Point2i(0, 0));
     }
 
+    void StereoCamUsb::processSGBM()
+    {
+        cv::Mat disparity_sgbm;
+        cv::Ptr<cv::StereoSGBM> sgbm = cv::StereoSGBM::create(
+            0, 96, 9, 8 * 9 * 9, 32 * 9 * 9, 1, 63, 10, 100, 32);
+        sgbm->compute(this->frame(cv::Rect(0, 0, this->frame.cols / 2, this->frame.rows)), this->frame(cv::Rect(this->frame.cols / 2, 0, this->frame.cols / 2, this->frame.rows)), disparity_sgbm);
+        disparity_sgbm.convertTo(frame, CV_32F, 1.0 / 16.0f);
+    }
+
     void StereoCamUsb::getImage(cv::Mat &img)
     {
         img = this->frame.clone();

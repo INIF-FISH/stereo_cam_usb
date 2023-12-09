@@ -75,6 +75,7 @@ namespace stereo_cam_usb
         void readImage();
         void calcTransform();
         void correctImage();
+        void processSGBM();
         void getImage(cv::Mat &img);
 
         int getCAP_PROP_FRAME_WIDTH();
